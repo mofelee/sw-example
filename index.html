@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>sw example</title>
+  </head>
+  <body>
+    <h3>用 Chrome 打开开发者工具看效果。。。</h3>
+    <script type="text/javascript">
+      if ('serviceWorker' in navigator) {
+        /**
+         * 注意，serviceWorker 只能控制脚本所在目录以及他的子目录
+         * 假设注册的地址为'/myapp/sw.js', serviceWorker 只能截获并响应'/myapp'目录下的网络请求
+         */
+        navigator.serviceWorker.register('/sw.js').then(function(reg) {
+          console.log('Yey!', reg);
+        }).catch(function(err) {
+          console.log('Boo!', err);
+        });
+      }
+    </script>
+  </body>
+</html>
